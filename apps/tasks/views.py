@@ -111,7 +111,7 @@ class CSRFEnsureCookiesView(View):
     @method_decorator(ensure_csrf_cookie)
     def dispatch(self, *args, **kwargs):
         return super(CSRFEnsureCookiesView, self).dispatch(*args, **kwargs)
-    
+
 
 class ApiLoginView(CSRFExemptView):
 

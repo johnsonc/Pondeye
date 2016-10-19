@@ -140,7 +140,7 @@ function signUp(){
                 if(successStatus === "created"){
                     console.log("created!!");
                     localStorage.setItem("username", username);
-                    myNavigator.pushPage("add_new_task.html", {data:
+                    myNavigator.pushPage("tasks_view.html", {data:
                         {welcome_message: 
                         message_answer}})   
                 }

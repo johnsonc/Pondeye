@@ -101,6 +101,18 @@ class LoginView(FormView):
         return context
 
 
+class CSRFExemptView(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, *args, **kwargs):
+        return super(CSRFExemptView, self).dispatch(*args, **kwargs)
+
+
+class CSRFEnsureCookiesView(View):
+    @method_decorator(ensure_csrf_cookie)
+    def dispatch(self, *args, **kwargs):
+        return super(CSRFEnsureCookiesView, self).dispatch(*args, **kwargs)
+    
+
 class ApiLoginView(CSRFExemptView):
 
     def get(self, request,  *args, **kwargs):
@@ -118,19 +130,6 @@ class ApiLoginView(CSRFExemptView):
         else:
             response_data['success'] = "false"
         return HttpResponse(json.dumps(response_data), status=201)
-
-
-class CSRFExemptView(View):
-    @method_decorator(csrf_exempt)
-    def dispatch(self, *args, **kwargs):
-        return super(CSRFExemptView, self).dispatch(*args, **kwargs)
-
-
-class CSRFEnsureCookiesView(View):
-    @method_decorator(ensure_csrf_cookie)
-    def dispatch(self, *args, **kwargs):
-        return super(CSRFEnsureCookiesView, self).dispatch(*args, **kwargs)
-
 
 class ApiStartUserSession(CSRFExemptView):
 

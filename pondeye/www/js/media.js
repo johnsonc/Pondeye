@@ -1,17 +1,18 @@
 var picture_url = "";
 var picture_id_temp = "";
-
+var HOST_PYTHON_ANYWHERE = "http://uzzije.pythonanywhere.com/";
+var LOCALHOST = 'localhost:8100/';
 
 $(document).on('pageinit', '#tasks_page_id', function(){
     
     $("#fileupload").fileupload({
         dataType: 'json',
-        url: 'http://localhost:8100/social/api/upload-pictures/',
+        url: HOST_PYTHON_ANYWHERE+'social/api/upload-pictures/',
         formData: [{name:"username", value:localStorage.getItem('username')}],
         done: function(e, data){
             console.log(data);
            if(data.result.status == true){
-               picture_url = 'http://localhost:8100'+data.result.picture_url
+               picture_url = HOST_PYTHON_ANYWHERE+''+data.result.picture_url
                console.log(picture_url);
                picture_id_temp = data.result.picture_id;
                myNavigator.pushPage('new_photo_view.html');
@@ -34,7 +35,7 @@ function returnTodaysGoals() {
      var task_info = {username:localStorage.getItem('username'), get_what:"tasks_info"};
         setUpAjax();
         $.ajax({
-        url: 'http://localhost:8100/tasks/api/tasks',
+        url: HOST_PYTHON_ANYWHERE+'tasks/api/tasks',
         type: "GET",
         data: task_info,
         success: function(e){
@@ -68,7 +69,7 @@ function TagPicturetoTasks(){
         var task_info = {username:localStorage.getItem('username'), task_id:tasksID, pic_id:pictureID};
         setUpAjax();
         $.ajax({
-        url: 'http://localhost:8100/social/api/add-new-pic-to-task',
+        url: HOST_PYTHON_ANYWHERE+'social/api/add-new-pic-to-task',
         type: "POST",
         data: task_info,
         success: function(e){

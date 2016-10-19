@@ -101,7 +101,7 @@ class LoginView(FormView):
         return context
 
 
-class ApiLoginView(View):
+class ApiLoginView(CSRFExemptView):
 
     def get(self, request,  *args, **kwargs):
         response_data ={}
@@ -156,7 +156,7 @@ class ApiStartUserSession(CSRFExemptView):
         return HttpResponse(json.dumps(response_data), status=201)
 
 
-class ApiRegistrationView(CSRFEnsureCookiesView):
+class ApiRegistrationView(CSRFExemptView):
 
     def get(self, request, *args, **kwargs):
         pass

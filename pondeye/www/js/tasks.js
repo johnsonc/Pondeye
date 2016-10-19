@@ -1,15 +1,16 @@
 
 var TASKS_REMINDER = false;
 var reminder_list = [];
-
+var HOST_PYTHON_ANYWHERE = "http://uzzije.pythonanywhere.com/";
+var LOCALHOST = 'localhost:8100/'
 $(document).on('pageinit', '#tasks_page_id', function(){
-    localStorage.setItem("username", "starken");
-    //localStorage.setItem("username", "Uzzis");
+    //localStorage.setItem("username", "starken");
+    localStorage.setItem("username", "Uzzis");
    showTasksInfo();
    
   $("#upload_pic").fileupload({
         dataType: 'json',
-        url: 'http://localhost:8100/api/upload-picture/',
+        url: HOST_PYTHON_ANYWHERE+'api/upload-picture/',
         done: function(e, data){
             $.each(data.result.files, function(index, file){
                 $('<p/>').text(file.name).appendTo(document.body);
@@ -74,7 +75,7 @@ function createTask() {
     if(new_task_input){
         setUpAjax();
         $.ajax({
-        url: 'http://localhost:8100/tasks/api/tasks',
+        url: HOST_PYTHON_ANYWHERE+'tasks/api/tasks',
         type: "POST",
         data: task_info,
         success: function(e){
@@ -111,7 +112,7 @@ function updateTask(update_id) {
     if(new_task_input){
         setUpAjax();
         $.ajax({
-        url: 'http://localhost:8100/tasks/api/tasks',
+        url: HOST_PYTHON_ANYWHERE+'tasks/api/tasks',
         type: "POST",
         data: task_info,
         success: function(e){
@@ -142,7 +143,7 @@ function getNewTaskView(){
     var task_info = {username:localStorage.getItem('username'), get_what:"project"};
     setUpAjax();
         $.ajax({
-        url: 'http://localhost:8100/tasks/api/tasks',
+        url: HOST_PYTHON_ANYWHERE+'tasks/api/tasks',
         type: "GET",
         data: task_info,
         success: function(e){
@@ -178,7 +179,7 @@ function getUpdateTaskView(){
     var task_info = {username:localStorage.getItem('username'), get_what:"project"};
     setUpAjax();
         $.ajax({
-        url: 'http://localhost:8100/tasks/api/tasks',
+        url: HOST_PYTHON_ANYWHERE+'tasks/api/tasks',
         type: "GET",
         data: task_info,
         success: function(e){
@@ -214,7 +215,7 @@ function individualTaskView(task_id, view){
     var task_info = {username:localStorage.getItem('username'), id:task_id};
     setUpAjax();
         $.ajax({
-        url: 'http://localhost:8100/tasks/api/individual-view',
+        url: HOST_PYTHON_ANYWHERE+'tasks/api/individual-view',
         type: "GET",
         data: task_info,
         success: function(e){
@@ -286,7 +287,7 @@ function showTasksInfo(){
     var task_info = {username:localStorage.getItem('username'), get_what:"tasks_info"};
         setUpAjax();
         $.ajax({
-        url: 'http://localhost:8100/tasks/api/tasks',
+        url: HOST_PYTHON_ANYWHERE+'tasks/api/tasks',
         type: "GET",
         data: task_info,
         success: function(e){
@@ -421,7 +422,7 @@ function taskDone(pk){
     var task_info = {username:localStorage.getItem('username'), pk:pk};
    setUpAjax(); 
    $.ajax({
-        url: 'http://localhost:8100/tasks/api/task-done-check-off/',
+        url: HOST_PYTHON_ANYWHERE+'tasks/api/task-done-check-off/',
         type: "POST",
         data: task_info,
         success: function(result){
@@ -443,7 +444,7 @@ function taskFailed(pk){
     var task_info = {username:localStorage.getItem('username'), pk:pk};
    setUpAjax(); 
    $.ajax({
-        url: 'http://localhost:8100/tasks/api/task-failed-check-off/',
+        url: HOST_PYTHON_ANYWHERE+'tasks/api/task-failed-check-off/',
         type: "POST",
         data: task_info,
         success: function(result){

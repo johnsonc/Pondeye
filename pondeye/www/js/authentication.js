@@ -1,3 +1,5 @@
+var HOST_PYTHON_ANYWHERE = "http://uzzije.pythonanywhere.com/";
+var LOCALHOST = 'localhost:8100/';
 //ons.ready(function(){
 function setUpAjax(){ 
         var crsftoken = Cookies.get('csrftoken');  
@@ -20,7 +22,7 @@ function startSession(){
         setUpAjax();
         user_info = {username:localStorage.getItem("username"), password:localStorage.getItem("password")};
         $.ajax({
-        url: 'http://localhost:8100/tasks/api/start_session',
+            url: HOST_PYTHON_ANYWHERE + "tasks/api/start_session",
         type: "GET",
         data: user_info,
         success: function(e){
@@ -41,6 +43,8 @@ function startSession(){
         error: function(xhr){
             $("#error-message").text(xhr.responseText).show();
             console.log(xhr);
+            console.log(HOST_PYTHON_ANYWHERE+'tasks/api/start_session');
+            console.log("out here");
         }  
     });
 }
@@ -54,7 +58,7 @@ function login()
      setUpAjax();
     user_info = {username:username, password:password};
     $.ajax({
-        url: 'http://localhost:8100/tasks/api/login',
+        url: HOST_PYTHON_ANYWHERE+'tasks/api/login',
         type: "GET",
         data: user_info,
         success: function(e){
@@ -123,7 +127,7 @@ function signUp(){
         user_info = { 'user_name':username, 'password':password, 'email':email, 'first_name':first_name, 'last_name':last_name};
         
         $.ajax({
-            url: 'http://localhost:8100/tasks/api/register/',
+            url: HOST_PYTHON_ANYWHERE+'tasks/api/register/',
             type: "POST",
             crossDomain: true,
             data: user_info,

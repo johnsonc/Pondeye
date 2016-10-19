@@ -1,3 +1,5 @@
+var HOST_PYTHON_ANYWHERE = "http://uzzije.pythonanywhere.com/";
+var LOCALHOST = 'localhost:8100/';
 var globalSearchWord = '';
 $(document).on('pageinit', '#social_feed_id', function(){
     console.log("i am being called!");
@@ -30,7 +32,7 @@ function getNewsFeed(){
         var feed_info = {username:localStorage.getItem('username'), get_what:"user_feed"};
         setUpAjax();
         $.ajax({
-        url: 'http://localhost:8100/social/api/newsfeed',
+        url: HOST_PYTHON_ANYWHERE+'social/api/newsfeed',
         type: "GET",
         data: feed_info,
         success: function(result){
@@ -95,7 +97,7 @@ function getHomeActivityFeed(){
         var feed_info = {username:localStorage.getItem('username'), get_what:"user_feed"};
         setUpAjax();
         $.ajax({
-        url: 'http://localhost:8100/social/api/get-home-activities',
+        url: HOST_PYTHON_ANYWHERE+'social/api/get-home-activities',
         type: "GET",
         data: feed_info,
         success: function(result){
@@ -159,7 +161,7 @@ function getNotificationCred(){
    setUpAjax(); 
    console.log("getting heer credibility");
    $.ajax({
-        url: 'http://localhost:8100/social/api/get-grade-notifications',
+        url: HOST_PYTHON_ANYWHERE+'social/api/get-grade-notifications',
         type: 'GET',
         data: notif_info,
         success: function(result){
@@ -185,7 +187,7 @@ function getNotificationCons(){
    setUpAjax(); 
    console.log("getting heer credibility");
    $.ajax({
-        url: 'http://localhost:8100/social/api/get-grade-notifications',
+        url: HOST_PYTHON_ANYWHERE+'social/api/get-grade-notifications',
         type: "GET",
         data: notif_info,
         success: function(result){
@@ -215,7 +217,7 @@ function createVouch(tasks_id){
    setUpAjax(); 
    console.log("getting heer");
    $.ajax({
-        url: 'http://localhost:8100/social/api/create-vouch',
+        url: HOST_PYTHON_ANYWHERE+'social/api/create-vouch',
         type: 'POST',
         data: vouch_info,
         success: function(result){
@@ -236,7 +238,7 @@ function createFollow(task_id){
    var project_info = {username:localStorage.getItem('username'), task_id:task_id};
    setUpAjax(); 
    $.ajax({
-        url: 'http://localhost:8100/social/api/create-follow/',
+        url: HOST_PYTHON_ANYWHERE+'social/api/create-follow/',
         type: "POST",
         data: project_info,
         success: function(result){
@@ -258,7 +260,7 @@ function findPeople(search_word){
     var search_info = {username:localStorage.getItem('username'), query_word:search_word};
     setUpAjax(); 
        $.ajax({
-        url: 'http://localhost:8100/social/api/social-search/',
+        url: HOST_PYTHON_ANYWHERE+'social/api/social-search/',
         type: "GET",
         data: search_info,
         success: function(result){
@@ -303,7 +305,7 @@ function acceptFriendRequest(pk, userName){
     var accept_info = {username:localStorage.getItem('username'), pk:pk};
     setUpAjax();
     $.ajax({
-        url: 'http://localhost:8100/social/api/accept-friend-request/',
+        url: HOST_PYTHON_ANYWHERE+'social/api/accept-friend-request/',
         type: "POST",
         data: accept_info,
         success: function(result){
@@ -326,7 +328,7 @@ function denyFriendRequest(pk, userName){
     var deny_info = {username:localStorage.getItem('username'), pk:pk};
     setUpAjax();
     $.ajax({
-        url: 'http://localhost:8100/social/api/deny-friend-request/',
+        url: HOST_PYTHON_ANYWHERE+'social/api/deny-friend-request/',
         type: "POST",
         data: deny_info,
         success: function(result){
@@ -349,7 +351,7 @@ function send_friends_request(id){
    var friend_request_info = {username:localStorage.getItem('username'), user_id:id};
    setUpAjax();
     $.ajax({
-        url: 'http://localhost:8100/social/api/send-friend-request/',
+        url: HOST_PYTHON_ANYWHERE+'social/api/send-friend-request/',
         type: "POST",
         data: friend_request_info,
         success: function(result){
@@ -371,7 +373,7 @@ function getFriendShipRequest(){
     var friend_request_info = {username:localStorage.getItem('username')};
     setUpAjax(); 
        $.ajax({
-        url: 'http://localhost:8100/social/api/friend-request/',
+        url: HOST_PYTHON_ANYWHERE+'social/api/friend-request/',
         type: "GET",
         data: friend_request_info,
         success: function(result){

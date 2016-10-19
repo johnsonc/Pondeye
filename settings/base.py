@@ -18,7 +18,7 @@ SITE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 XS_SHARING_ALLOWED_ORIGINS = '*'
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['Uzzije.pythonanywhere.com']
 LOGIN_URL = '/tasks/login'
 
 CELERY_ACCEPT_CONTENT = ['json']

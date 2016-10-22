@@ -59,8 +59,8 @@ function newUser(){
 }
 function openCalendar(){
     alert("not working");
-    //var ref =  cordova.InAppBrowser.open('http://127.0.0.1:8100/calendar/', '_blank', 'location=no');
-    var ref =  cordova.InAppBrowser.open('https://www.google.com', '_blank', 'location=no');
+    var ref =  cordova.InAppBrowser.open(HOST_PYTHON_ANYWHERE+ 'calendar/', '_blank', 'location=no');
+    //var ref =  cordova.InAppBrowser.open('https://www.google.com', '_blank', 'location=no');
 } 
 
 function createTask() {

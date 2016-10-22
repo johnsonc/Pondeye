@@ -39,24 +39,24 @@
                 ons.compile(content);
                 //var navigatePage = document.getElementById("appropNavigator");
                 
-                //if( localStorage.getItem("username") === null ){
+                if( localStorage.getItem("username") === null ){
                     //redirect user to add tasks view
-                     myNavigator.pushPage('login.html');
+                    myNavigator.pushPage('login.html');
                      console.log("has storage");
                      //alert("why are you not working");
-                //}
-                //else{
+                }
+                else{
                     //redirect to login in page
-                    //startSession();
+                    startSession();
                     
                     //console.log("has not storage");
                     //alert("why are you not working");
-                //}
+                }
             
             //$(".button-collapse").sideNav();
             //
-            setUpAjax();
-            startSession();  
+            //setUpAjax();
+            //startSession();  
             //myNavigator.pushPage("tasks_view.html");
              });   
     </script>

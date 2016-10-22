@@ -4,7 +4,7 @@ var HOST_PYTHON_ANYWHERE = "http://uzzije.pythonanywhere.com/";
 var LOCALHOST = 'localhost:8100/';
 
 $(document).on('pageinit', '#tasks_page_id', function(){
-    
+    console.log("make me bitter");
     $("#fileupload").fileupload({
         dataType: 'json',
         url: HOST_PYTHON_ANYWHERE+'social/api/upload-pictures/',

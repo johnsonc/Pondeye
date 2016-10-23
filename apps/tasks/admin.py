@@ -3,6 +3,7 @@ from image_cropping import ImageCroppingMixin
 from models import TikedgeUser, Tasks, UserProject, PendingTasks
 # Register your models here.
 
+
 class MyModelAdmin(ImageCroppingMixin, admin.ModelAdmin):
     pass
 

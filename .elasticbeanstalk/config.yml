@@ -1,0 +1,15 @@
+branch-defaults:
+  api-branch-dev:
+    environment: pondeye-env
+    group_suffix: null
+  beta:
+    environment: pondeye-env
+global:
+  application_name: pondeye-backend
+  branch: null
+  default_ec2_keyname: Uzzije
+  default_platform: python2.7
+  default_region: us-west-2
+  profile: eb-cli
+  repository: null
+  sc: git

@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "tilkedge.settings.aws_beta")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "tilkedge.settings.beta")
 
 application = get_wsgi_application()
